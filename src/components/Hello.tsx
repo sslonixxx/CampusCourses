@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import styles from "../componentsCss/hello.module.css";
+import styles from "../componentsCss/header.module.css";
+import hello from "../componentsCss/hello.module.css";
 
-function Header() {
+function Hello() {
   return (
     <>
       <header className={styles.header}>
@@ -22,10 +23,10 @@ function Header() {
         </ul>
       </header>
       <body>
-        <h1 className={styles.h1}>Добро пожаловать в cистему</h1>
-        <h1 className={styles.h1}>кампусных курсов</h1>
+        <h1 className={hello.h1}>Добро пожаловать в cистему</h1>
+        <h1 className={hello.h1}>кампусных курсов</h1>
       </body>
     </>
   );
 }
-export default Header;
+export default Hello;

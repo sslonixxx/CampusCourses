@@ -1,29 +1,3 @@
-@font-face {
-    font-family: 'Quicksand';
-    src: local('Quicksand'),
-    url('/Users/gerget/NewLab/src/fonts/Quicksand/static/Quicksand-Regular.ttf');
-}
-.header {
-    background-color: rgb(220, 118, 181);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 20px;
-    font-family: "Quicksand";
-}
-.logo {
-    font-size:larger;
-}
-.log {
-    display: flex;
-    gap: 10px;
-    list-style: none;
-}
-.link {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-}
 .h1 {
     font-weight: normal;
     text-align: center;

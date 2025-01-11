@@ -1,7 +1,7 @@
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import styles from "../componentsCss/profile.module.css";
 import { useEffect } from "react";
-import { GetProfile } from "../requests";
+import { GetProfile, PutProfile } from "../requests";
 
 export interface ProfileForm {
   fullName: string;
@@ -33,6 +33,7 @@ function Profile() {
       ...data,
       birthDate: data.birthDate.toString(),
     };
+    PutProfile(payload);
     console.log(payload);
   };
 
