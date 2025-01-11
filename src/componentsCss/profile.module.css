@@ -1,0 +1,11 @@
+
+.inputContainer {
+    display: flex;
+}
+.label { 
+    width: 30%;
+    padding-top: 2px;
+}
+.input {
+    width: 70%;
+}
