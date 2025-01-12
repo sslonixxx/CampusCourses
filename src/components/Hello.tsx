@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 import styles from "../componentsCss/header.module.css";
 import hello from "../componentsCss/hello.module.css";
 
-function Hello() {
+interface HelloProps {
+  showBody?: boolean;
+}
+
+function Hello({ showBody = true }: HelloProps) {
   return (
     <>
       <header className={styles.header}>
@@ -22,10 +26,12 @@ function Hello() {
           </li>
         </ul>
       </header>
-      <body>
-        <h1 className={hello.h1}>Добро пожаловать в cистему</h1>
-        <h1 className={hello.h1}>кампусных курсов</h1>
-      </body>
+      {showBody && (
+        <body>
+          <h1 className={hello.h1}>Добро пожаловать в cистему</h1>
+          <h1 className={hello.h1}>кампусных курсов</h1>
+        </body>
+      )}
     </>
   );
 }

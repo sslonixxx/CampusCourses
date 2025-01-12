@@ -2,6 +2,7 @@ import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import styles from "../componentsCss/profile.module.css";
 import { useEffect } from "react";
 import { GetProfile, PutProfile } from "../requests";
+import Header from "./Header";
 
 export interface ProfileForm {
   fullName: string;
@@ -43,46 +44,49 @@ function Profile() {
 
   const emailError = formState.errors["email"]?.message;
   return (
-    <main>
-      <form className="form" onSubmit={handleSubmit(submit, error)}>
-        <h2>Профиль</h2>
-        <div className={styles.inputContainer}>
-          <label className={styles.label}>ФИО</label>
-          <input
-            className={styles.input}
-            type="text"
-            {...register("fullName", {
-              required: "required field",
-            })}
-          />
-        </div>
-        <div className={styles.inputContainer}>
-          <label className={styles.label}>Email</label>
-          <input
-            className={styles.input}
-            type="email"
-            {...register("email", {
-              required: "required field",
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: "Invalid email addresss",
-              },
-            })}
-            placeholder="user@exemple.com"
-          />
-          {emailError && <p className="invalidField">{emailError}</p>}
-        </div>
-        <div className={styles.inputContainer}>
-          <label className={styles.label}>День рождения</label>
-          <input
-            className={styles.input}
-            type="date"
-            {...register("birthDate", { required: "required field" })}
-          />
-        </div>
-        <button>Изменить</button>
-      </form>
-    </main>
+    <>
+      <Header></Header>
+      <main>
+        <form className="form" onSubmit={handleSubmit(submit, error)}>
+          <h2>Профиль</h2>
+          <div className={styles.inputContainer}>
+            <label className={styles.label}>ФИО</label>
+            <input
+              className={styles.input}
+              type="text"
+              {...register("fullName", {
+                required: "required field",
+              })}
+            />
+          </div>
+          <div className={styles.inputContainer}>
+            <label className={styles.label}>Email</label>
+            <input
+              className={styles.input}
+              type="email"
+              {...register("email", {
+                required: "required field",
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: "Invalid email addresss",
+                },
+              })}
+              placeholder="user@exemple.com"
+            />
+            {emailError && <p className="invalidField">{emailError}</p>}
+          </div>
+          <div className={styles.inputContainer}>
+            <label className={styles.label}>День рождения</label>
+            <input
+              className={styles.input}
+              type="date"
+              {...register("birthDate", { required: "required field" })}
+            />
+          </div>
+          <button className="button">Изменить</button>
+        </form>
+      </main>
+    </>
   );
 }
 

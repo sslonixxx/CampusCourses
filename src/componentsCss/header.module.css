@@ -31,3 +31,10 @@
     gap: 15px;
     list-style: none;
 }
+.btnEnter {
+    border: none;
+    background-color: rgb(220, 118, 181);
+    color: white;
+    font-family: 'Quicksand';
+    font-size: medium;
+}

@@ -2,7 +2,7 @@ import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import "../componentsCss/forms.css";
 import { loginUser } from "../requests";
 import { useNavigate } from "react-router-dom";
-import Header from "./Hello";
+import Hello from "./Hello";
 
 export interface LoginForm {
   email: string;
@@ -21,11 +21,10 @@ function Login() {
   };
   const emailError = formState.errors["email"]?.message;
   const passwordError = formState.errors["password"]?.message;
-  //const email = getValues("email")
 
   return (
     <>
-      <Header></Header>
+      <Hello showBody={false}></Hello>
       <main>
         <form className="form" onSubmit={handleSubmit(submit, error)}>
           <h2>Вход</h2>
@@ -63,7 +62,7 @@ function Login() {
             />
             {passwordError && <p className="invalidField">{passwordError}</p>}
           </div>
-          <button>Отправить</button>
+          <button className="button">Отправить</button>
         </form>
       </main>
     </>

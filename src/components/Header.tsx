@@ -1,7 +1,14 @@
 import styles from "../componentsCss/header.module.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { logoutUser } from "../requests";
 
-function Header(email: string) {
+function Header() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    logoutUser();
+    navigate("/login", { replace: true });
+  };
+
   return (
     <header className={styles.header}>
       <p className={styles.logo}>Кампусные курсы</p>
@@ -10,17 +17,12 @@ function Header(email: string) {
         <li className={styles.link}>Мои курсы</li>
         <li className={styles.link}>Преподаваемые курсы</li>
       </ul>
-      <ul className={styles.log}>
-        <li>
-          <p>{email}</p>
-        </li>
-        <li>
-          <Link className={styles.link} to="/login">
-            {" "}
-            Выход
-          </Link>
-        </li>
-      </ul>
+      <div className={styles.log}>
+        <p>{}</p>
+        <button onClick={handleClick} className={styles.btnEnter}>
+          Выход
+        </button>
+      </div>
     </header>
   );
 }

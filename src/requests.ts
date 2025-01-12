@@ -53,7 +53,7 @@ export const RegisterUser = async (data: RegisterForm) => {
 export const GetProfile = async () => {
   try {
     const response = await instance.get("profile");
-    console.log("Success:", response.data);
+    console.log("Success get:", response.data);
     return response.data;
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
@@ -67,7 +67,20 @@ export const GetProfile = async () => {
 export const PutProfile = async (data: ProfileForm) => {
   try {
     const response = await instance.put("profile", data);
+    console.log("Success put:", response.data);
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      console.error("Axios error:", error.response?.data || error.message);
+    } else {
+      console.error("Unexpected error:", error);
+    }
+  }
+};
+export const logoutUser = async () => {
+  try {
+    const response = await instance.post("logout");
     console.log("Success:", response.data);
+    localStorage.clear();
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
       console.error("Axios error:", error.response?.data || error.message);
