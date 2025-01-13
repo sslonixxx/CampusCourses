@@ -2,7 +2,10 @@ import styles from "../componentsCss/header.module.css";
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../requests";
 
-function Header() {
+interface Props {
+  email: string;
+}
+const Header: React.FC<Props> = ({ email }) => {
   const navigate = useNavigate();
   const handleClick = () => {
     logoutUser();
@@ -18,13 +21,13 @@ function Header() {
         <li className={styles.link}>Преподаваемые курсы</li>
       </ul>
       <div className={styles.log}>
-        <p>{}</p>
+        <p className={styles.email}>{email}</p>
         <button onClick={handleClick} className={styles.btnEnter}>
           Выход
         </button>
       </div>
     </header>
   );
-}
+};
 
 export default Header;

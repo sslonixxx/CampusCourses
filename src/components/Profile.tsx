@@ -6,12 +6,14 @@ import Header from "./Header";
 
 export interface ProfileForm {
   fullName: string;
-  birthDate: string;
   email: string;
+  birthDate: string;
 }
 
 function Profile() {
-  const { register, handleSubmit, formState, reset } = useForm<ProfileForm>();
+  const { register, handleSubmit, formState, reset, watch } =
+    useForm<ProfileForm>();
+  const email = watch("email");
   useEffect(() => {
     const fillProfile = async () => {
       try {
@@ -35,7 +37,6 @@ function Profile() {
       birthDate: data.birthDate.toString(),
     };
     PutProfile(payload);
-    console.log(payload);
   };
 
   const error: SubmitErrorHandler<ProfileForm> = (data) => {
@@ -45,7 +46,7 @@ function Profile() {
   const emailError = formState.errors["email"]?.message;
   return (
     <>
-      <Header></Header>
+      <Header email={email}></Header>
       <main>
         <form className="form" onSubmit={handleSubmit(submit, error)}>
           <h2>Профиль</h2>
@@ -89,5 +90,4 @@ function Profile() {
     </>
   );
 }
-
 export default Profile;
