@@ -3,6 +3,7 @@ import styles from "../componentsCss/profile.module.css";
 import { useEffect } from "react";
 import { GetProfile, PutProfile } from "../requests";
 import Header from "./Header";
+import { useEmail } from "../componentsCss/contexts/EmailProvider";
 
 export interface ProfileForm {
   fullName: string;
@@ -11,9 +12,8 @@ export interface ProfileForm {
 }
 
 function Profile() {
-  const { register, handleSubmit, formState, reset, watch } =
-    useForm<ProfileForm>();
-  const email = watch("email");
+  const { register, handleSubmit, formState, reset } = useForm<ProfileForm>();
+  const { setEmail } = useEmail();
   useEffect(() => {
     const fillProfile = async () => {
       try {
@@ -23,6 +23,7 @@ function Profile() {
           birthDate: data.birthDate.split("T")[0],
         };
         reset(formattedData);
+        setEmail(data.email);
       } catch (error) {
         console.error("Error fetching profile data:", error);
       }
@@ -37,6 +38,7 @@ function Profile() {
       birthDate: data.birthDate.toString(),
     };
     PutProfile(payload);
+    setEmail(data.email);
   };
 
   const error: SubmitErrorHandler<ProfileForm> = (data) => {
@@ -46,7 +48,7 @@ function Profile() {
   const emailError = formState.errors["email"]?.message;
   return (
     <>
-      <Header email={email}></Header>
+      <Header></Header>
       <main>
         <form className="form" onSubmit={handleSubmit(submit, error)}>
           <h2>Профиль</h2>
