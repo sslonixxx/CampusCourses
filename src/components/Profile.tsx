@@ -3,7 +3,7 @@ import styles from "../componentsCss/profile.module.css";
 import { useEffect } from "react";
 import { GetProfile, PutProfile } from "../requests";
 import Header from "./Header";
-import { useEmail } from "../componentsCss/contexts/EmailProvider";
+import { useEmail } from "../contexts/useEmail";
 
 export interface ProfileForm {
   fullName: string;
@@ -30,7 +30,7 @@ function Profile() {
     };
 
     fillProfile();
-  }, [reset]);
+  }, [reset, setEmail]);
 
   const submit: SubmitHandler<ProfileForm> = (data) => {
     const payload = {

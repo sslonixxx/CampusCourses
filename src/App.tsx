@@ -4,7 +4,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
 import Hello from "./components/Hello";
-import GroupList from "./components/GroupList";
+import GroupList from "./components/groups/GroupList";
 
 function App() {
   return (

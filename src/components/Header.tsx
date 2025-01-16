@@ -1,7 +1,7 @@
 import styles from "../componentsCss/header.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../requests";
-import { useEmail } from "../componentsCss/contexts/EmailProvider";
+import { useEmail } from "../contexts/useEmail";
 
 function Header() {
   const { email } = useEmail();
