@@ -1,4 +1,4 @@
-import styles from "../componentsCss/header.module.css";
+import styles from "../cssModuls/header.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../requests";
 import { useEmail } from "../contexts/useEmail";

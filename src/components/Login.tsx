@@ -1,5 +1,5 @@
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import "../componentsCss/forms.css";
+import "../cssModuls/forms.css";
 import { loginUser } from "../requests";
 import { useNavigate } from "react-router-dom";
 import Hello from "./Hello";

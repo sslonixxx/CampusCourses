@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Quicksand";
+  src: local("Quicksand"),
+    url("/Users/gerget/NewLab/src/fonts/Quicksand/static/Quicksand-Regular.ttf");
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  font-family: "Quicksand";
+}
+.button {
+  width: 20%;
+  height: 25px;
+  background-color: rgb(220, 118, 181);
+  color: white;
+  font-family: "Quicksand";
+  border: none;
+  border-radius: 4px;
+}
+
+.title {
+  display: flex;
+  align-self: start;
+  margin-top: 15px;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 80%;
+  gap: 15px;
+}
+.container {
+  border: 1px solid rgb(188, 188, 188);
+}
+.group {
+  display: flex;
+  border-bottom: 1px solid rgb(188, 188, 188);
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+.groupName {
+  margin: 10px;
+  display: flex;
+}
+.icons {
+  display: flex;
+  gap: 5px;
+  margin: 10px;
+}
+.edit {
+  color: rgb(168, 18, 110);
+}
+.modalBack {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContainer {
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btnContainer {
+  display: flex;
+}
+.btnModalClose {
+  height: 30px;
+  width: 100%;
+  border: 1px solid rgb(193, 186, 186);
+  border-radius: 3px;
+  padding: 0 15px;
+  background-color: rgb(220, 118, 181);
+  color: white;
+  font-family: "Quicksand";
+}

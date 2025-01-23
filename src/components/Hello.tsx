@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import styles from "../componentsCss/header.module.css";
-import hello from "../componentsCss/hello.module.css";
+import styles from "../cssModuls/header.module.css";
+import hello from "../cssModuls/hello.module.css";
 
 interface HelloProps {
   showBody?: boolean;

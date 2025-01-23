@@ -1,5 +1,5 @@
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import styles from "../componentsCss/profile.module.css";
+import styles from "../cssModuls/profile.module.css";
 import { useEffect } from "react";
 import { GetProfile, PutProfile } from "../requests";
 import Header from "./Header";
