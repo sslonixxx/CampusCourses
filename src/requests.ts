@@ -2,6 +2,7 @@ import axios from "axios";
 import { LoginForm } from "./components/Login";
 import { RegisterForm } from "./components/Register";
 import { ProfileForm } from "./components/Profile";
+import Group from "./components/groups/Group";
 
 const instance = axios.create({
   baseURL: "https://camp-courses.api.kreosoft.space/",
@@ -125,6 +126,33 @@ export const createGroup = async (group: { name: string }) => {
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
       console.error("Axios error:", error.response?.data || error.message);
+    } else {
+      console.error("Unexpected error:", error);
+    }
+  }
+};
+export const deleteCampusGroup = async (id: number) => {
+  try {
+    const response = await instance.delete(`groups/${id}`);
+    console.log("Success:", response.data);
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      console.error("Axios error:", error.response?.data || error.message);
+    } else {
+      console.error("Unexpected error:", error);
+    }
+  }
+};
+export const putCampusGroup = async (group: Group) => {
+  try {
+    const response = await instance.put(`groups/${group.id}`, {
+      name: group.name,
+    });
+    console.log("Success:", response.data);
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      console.error("Axios error:", error.response?.data || error.message);
+      console.log(group.id);
     } else {
       console.error("Unexpected error:", error);
     }

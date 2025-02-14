@@ -9,7 +9,7 @@ import ASingleGroup from "./ASingleGroup";
 import NewGroupModal from "./NewGroupModal";
 
 const GroupList: React.FC = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showNewGroupModal, setShowNewGroupModal] = useState(false);
   const [groupList, setGroupList] = useState<Group[]>([]);
   const [role, setRole] = useState<Role>();
   useEffect(() => {
@@ -29,6 +29,11 @@ const GroupList: React.FC = () => {
   const addGroup = (newGroup: Group) => {
     setGroupList([...groupList, newGroup]);
   };
+
+  const deleteGroupFromList = (groupId: number) => {
+    setGroupList((list) => list.filter((group) => group.id != groupId));
+  };
+
   return (
     <>
       <Header></Header>
@@ -38,7 +43,7 @@ const GroupList: React.FC = () => {
           {role?.isAdmin == true && (
             <button
               className={styles.button}
-              onClick={() => setShowModal(true)}
+              onClick={() => setShowNewGroupModal(true)}
             >
               Создать
             </button>
@@ -49,12 +54,16 @@ const GroupList: React.FC = () => {
                   <SingleGroup key={group.id} group={group} />
                 ))
               : groupList.map((group) => (
-                  <ASingleGroup key={group.id} group={group} />
+                  <ASingleGroup
+                    key={group.id}
+                    group={group}
+                    onDelete={deleteGroupFromList}
+                  />
                 ))}
           </div>
-          {showModal && (
+          {showNewGroupModal && (
             <NewGroupModal
-              closeModal={() => setShowModal(false)}
+              closeModal={() => setShowNewGroupModal(false)}
               addGroup={addGroup}
             />
           )}
