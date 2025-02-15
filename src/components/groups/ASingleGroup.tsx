@@ -6,9 +6,10 @@ import styles from "../../cssModuls/groupList.module.css";
 import { deleteCampusGroup, putCampusGroup } from "../../requests";
 import EditGroupModal from "./EditGroupModal";
 
-interface SingleGroupProps {
+interface ASingleGroupProps {
   group: Group;
   onDelete: (id: number) => void;
+  onEdit: (updatedGroup: Group) => void;
 }
 
 const deleteGroup = (group: Group, onDelete: (id: number) => void) => {
@@ -17,12 +18,18 @@ const deleteGroup = (group: Group, onDelete: (id: number) => void) => {
 
   console.log(group.id);
 };
-const editGroup = (group: Group) => {
-  putCampusGroup(group);
-};
 
-const SingleGroup: React.FC<SingleGroupProps> = ({ group, onDelete }) => {
+const ASingleGroup: React.FC<ASingleGroupProps> = ({
+  group,
+  onDelete,
+  onEdit,
+}) => {
   const [showEditGroupModal, setShowEditGroupModal] = useState(false);
+
+  const editGroup = (group: Group) => {
+    putCampusGroup(group);
+    onEdit(group);
+  };
 
   return (
     <div className={styles.group}>
@@ -50,4 +57,4 @@ const SingleGroup: React.FC<SingleGroupProps> = ({ group, onDelete }) => {
   );
 };
 
-export default SingleGroup;
+export default ASingleGroup;

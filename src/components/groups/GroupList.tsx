@@ -33,7 +33,13 @@ const GroupList: React.FC = () => {
   const deleteGroupFromList = (groupId: number) => {
     setGroupList((list) => list.filter((group) => group.id != groupId));
   };
-
+  const editGroupList = (updatedGroup: Group) => {
+    setGroupList((prevList) =>
+      prevList.map((group) =>
+        group.id == updatedGroup.id ? updatedGroup : group
+      )
+    );
+  };
   return (
     <>
       <Header></Header>
@@ -58,6 +64,7 @@ const GroupList: React.FC = () => {
                     key={group.id}
                     group={group}
                     onDelete={deleteGroupFromList}
+                    onEdit={editGroupList}
                   />
                 ))}
           </div>
