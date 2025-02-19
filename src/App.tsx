@@ -4,7 +4,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
 import Hello from "./components/Hello";
-import GroupList from "./components/groups/GroupList";
+import GroupList from "./components/groupList/GroupList";
+import GroupFull from "./components/groupFull/GroupFull";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="profile" element={<Profile />} />
       <Route path="/" element={<Hello />} />
       <Route path="/groups" element={<GroupList />} />
+      <Route path="/groups/:id" element={<GroupFull />} />
     </Routes>
   );
 }

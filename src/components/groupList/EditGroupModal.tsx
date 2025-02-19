@@ -22,8 +22,11 @@ const EditGroupModal: React.FC<Modal> = ({ closeModal, editGroup, group }) => {
   };
 
   return (
-    <div className={styles.modalBack}>
-      <div className={styles.modalContainer}>
+    <div className={styles.modalBack} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={styles.modalContainer}
+        onClick={(e) => e.stopPropagation()}
+      >
         <form className="form" onSubmit={handleSubmit(submit, error)}>
           <h2>Редактирование группы</h2>
           <div className="input-container">

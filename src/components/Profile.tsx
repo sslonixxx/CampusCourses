@@ -3,7 +3,7 @@ import styles from "../cssModuls/profile.module.css";
 import { useEffect } from "react";
 import { GetProfile, PutProfile } from "../requests";
 import Header from "./Header";
-import { useEmail } from "../contexts/useEmail";
+import { useEmail } from "../contexts/email/useEmail";
 
 export interface ProfileForm {
   fullName: string;

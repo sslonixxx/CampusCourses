@@ -5,6 +5,8 @@ import { MdDelete } from "react-icons/md";
 import styles from "../../cssModuls/groupList.module.css";
 import { deleteCampusGroup, putCampusGroup } from "../../requests";
 import EditGroupModal from "./EditGroupModal";
+import { useNavigate } from "react-router-dom";
+import { useGroupName } from "../../contexts/groupName/useGroupName";
 
 interface ASingleGroupProps {
   group: Group;
@@ -26,15 +28,23 @@ const ASingleGroup: React.FC<ASingleGroupProps> = ({
 }) => {
   const [showEditGroupModal, setShowEditGroupModal] = useState(false);
 
+  const navigate = useNavigate();
+
   const editGroup = (group: Group) => {
     putCampusGroup(group);
     onEdit(group);
   };
+  const { setGroup } = useGroupName();
+  const onClickFunction = (e: React.MouseEvent, group: Group) => {
+    e.stopPropagation();
+    setGroup(group.name);
+    navigate(`/groups/${group.id}`);
+  };
 
   return (
-    <div className={styles.group}>
+    <div className={styles.group} onClick={(e) => onClickFunction(e, group)}>
       <span className={styles.groupName}>{group.name}</span>
-      <div className={styles.icons}>
+      <div className={styles.icons} onClick={(e) => e.stopPropagation()}>
         <AiFillEdit
           size={25}
           className={styles.edit}

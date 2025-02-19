@@ -1,0 +1,9 @@
+.course {
+  display: flex;
+  border-bottom: 1px solid rgb(188, 188, 188);
+  flex-direction: column;
+  gap: 5px;
+}
+.smallFont {
+  color: grey;
+}
