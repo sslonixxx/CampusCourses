@@ -7,3 +7,24 @@
 .smallFont {
   color: grey;
 }
+.courseText {
+  margin: 10px;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+.statusCreated {
+  color: gray;
+}
+
+.statusStarted {
+  color: green;
+}
+
+.statusOpenForAssigning {
+  color: blue;
+}
+.statusFinished {
+  color: red;
+}
