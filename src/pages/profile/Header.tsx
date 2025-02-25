@@ -1,7 +1,7 @@
-import styles from "../cssModuls/header.module.css";
+import styles from "./header.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { logoutUser } from "../requests";
-import { useEmail } from "../contexts/email/useEmail";
+import { useEmail } from "../../shared/contexts/email/useEmail";
+import { logoutUser } from "../../shared/requests/user/logoutUser";
 
 function Header() {
   const { email } = useEmail();

@@ -1,4 +1,4 @@
-type Course = {
+interface Course {
   id: number;
   name: string;
   startYear: number;
@@ -6,5 +6,5 @@ type Course = {
   remainingSlotsCount: number;
   status: string;
   semester: string;
-};
+}
 export default Course;

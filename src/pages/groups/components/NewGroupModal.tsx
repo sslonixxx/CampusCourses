@@ -1,7 +1,7 @@
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import Group from "./Group";
-import styles from "../../cssModuls/groupList.module.css";
-import { createGroup } from "../../requests";
+import Group from "../../../@types/Group";
+import styles from "../groupList.module.css";
+import { createGroup } from "../../../shared/requests/group/createGroup";
 
 interface Modal {
   closeModal: (arg0: boolean) => void;

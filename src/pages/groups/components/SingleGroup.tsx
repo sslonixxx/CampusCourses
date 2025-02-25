@@ -1,6 +1,6 @@
 import React from "react";
-import Group from "./Group";
-import styles from "../../cssModuls/groupList.module.css";
+import styles from "../groupList.module.css";
+import Group from "../../../@types/Group";
 
 interface SingleGroupProps {
   group: Group;

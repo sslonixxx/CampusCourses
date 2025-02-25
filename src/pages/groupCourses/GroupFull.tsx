@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import styles from "../../cssModuls/groupList.module.css";
-import { getCoursesList, getUserRole } from "../../requests";
-import Role from "../Role";
-import Course from "./Course";
-import CourseForm from "./CourseForm";
+import styles from "../groups/groupList.module.css";
 import { useParams } from "react-router-dom";
-import Header from "../Header";
-import { useGroupName } from "../../contexts/groupName/useGroupName";
+import Header from "../../pages/profile/Header";
+import { useGroupName } from "../../shared/contexts/groupName/useGroupName";
+import CourseForm from "./components/CourseForm";
+import {
+  getCoursesList,
+  getUserRole,
+} from "../../shared/requests/requestsProvider";
+import Role from "../../@types/Role";
+import Course from "./components/Course";
 
 const GroupFull: React.FC = () => {
   const { group } = useGroupName();

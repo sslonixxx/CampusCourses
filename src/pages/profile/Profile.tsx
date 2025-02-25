@@ -1,10 +1,10 @@
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import styles from "../cssModuls/profile.module.css";
+import styles from "./profile.module.css";
 import { useEffect } from "react";
-import { GetProfile, PutProfile } from "../requests";
 import Header from "./Header";
-import { useEmail } from "../contexts/email/useEmail";
-
+import { useEmail } from "../../shared/contexts/email/useEmail";
+import { PutProfile } from "../../shared/requests/requestsProvider";
+import { GetProfile } from "../../shared/requests/requestsProvider";
 export interface ProfileForm {
   fullName: string;
   email: string;

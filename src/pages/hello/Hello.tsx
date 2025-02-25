@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import styles from "../cssModuls/header.module.css";
-import hello from "../cssModuls/hello.module.css";
+import styles from "../profile/header.module.css";
+import moreStyles from "../hello/hello.module.css";
 
 interface HelloProps {
   showBody?: boolean;
@@ -28,8 +28,8 @@ function Hello({ showBody = true }: HelloProps) {
       </header>
       {showBody && (
         <body>
-          <h1 className={hello.h1}>Добро пожаловать в cистему</h1>
-          <h1 className={hello.h1}>кампусных курсов</h1>
+          <div className={moreStyles.title}>Добро пожаловать в cистему</div>
+          <div className={moreStyles.title}>кампусных курсов</div>
         </body>
       )}
     </>

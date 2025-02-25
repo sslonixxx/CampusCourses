@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import Group from "./Group";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
-import styles from "../../cssModuls/groupList.module.css";
-import { deleteCampusGroup, putCampusGroup } from "../../requests";
-import EditGroupModal from "./EditGroupModal";
+import styles from "../groupList.module.css";
 import { useNavigate } from "react-router-dom";
-import { useGroupName } from "../../contexts/groupName/useGroupName";
+import Group from "../../../@types/Group";
+import { useGroupName } from "../../../shared/contexts/groupName/useGroupName";
+import EditGroupModal from "./EditGroupModal";
+import { putGroup } from "../../../shared/requests/group/putGroup";
+import { deleteGroup } from "../../../shared/requests/group/deleteGroup";
 
 interface ASingleGroupProps {
   group: Group;
@@ -14,8 +15,8 @@ interface ASingleGroupProps {
   onEdit: (updatedGroup: Group) => void;
 }
 
-const deleteGroup = (group: Group, onDelete: (id: number) => void) => {
-  deleteCampusGroup(group.id);
+const deleteCampusGroup = (group: Group, onDelete: (id: number) => void) => {
+  deleteGroup(group.id);
   onDelete(group.id);
 
   console.log(group.id);
@@ -31,7 +32,7 @@ const ASingleGroup: React.FC<ASingleGroupProps> = ({
   const navigate = useNavigate();
 
   const editGroup = (group: Group) => {
-    putCampusGroup(group);
+    putGroup(group);
     onEdit(group);
   };
   const { setGroup } = useGroupName();
@@ -53,7 +54,7 @@ const ASingleGroup: React.FC<ASingleGroupProps> = ({
         <MdDelete
           size={25}
           className={styles.edit}
-          onClick={() => deleteGroup(group, onDelete)}
+          onClick={() => deleteCampusGroup(group, onDelete)}
         />
       </div>
       {showEditGroupModal && (

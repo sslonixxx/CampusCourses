@@ -1,13 +1,15 @@
-import Header from "../Header";
-import Group from "./Group";
-import styles from "../../cssModuls/groupList.module.css";
-import { getGroupList, getUserRole } from "../../requests";
+import styles from "./groupList.module.css";
 import { useEffect, useState } from "react";
-import SingleGroup from "./SingleGroup";
-import Role from "../Role";
-import ASingleGroup from "./ASingleGroup";
-import NewGroupModal from "./NewGroupModal";
-
+import Header from "../profile/Header";
+import SingleGroup from "./components/SingleGroup";
+import ASingleGroup from "./components/ASingleGroup";
+import NewGroupModal from "./components/NewGroupModal";
+import {
+  getGroupList,
+  getUserRole,
+} from "../../shared/requests/requestsProvider";
+import Role from "../../@types/Role";
+import Group from "../../@types/Group";
 const GroupList: React.FC = () => {
   const [showNewGroupModal, setShowNewGroupModal] = useState(false);
   const [groupList, setGroupList] = useState<Group[]>([]);

@@ -1,8 +1,8 @@
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import "../cssModuls/forms.css";
-import { loginUser } from "../requests";
-import { useNavigate } from "react-router-dom";
-import Hello from "./Hello";
+import "./forms.css";
+import * as reactRouterDom from "react-router-dom";
+import Hello from "../hello/Hello";
+import { loginUser } from "../../shared/requests/requestsProvider";
 
 export interface LoginForm {
   email: string;
@@ -10,7 +10,7 @@ export interface LoginForm {
 }
 function Login() {
   const { register, handleSubmit, formState } = useForm<LoginForm>({});
-  const navigate = useNavigate();
+  const navigate = reactRouterDom.useNavigate();
   const submit: SubmitHandler<LoginForm> = async (data) => {
     await loginUser(data);
     navigate("/profile", { replace: true });

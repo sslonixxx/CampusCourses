@@ -1,7 +1,7 @@
-import styles from "../../cssModuls/course.module.css";
+import styles from "../course.module.css";
 
 import Course from "./Course";
-import Status from "./Status";
+import Status from "../../../@types/Status";
 
 interface CourseFormProps {
   course: Course;

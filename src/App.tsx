@@ -1,22 +1,28 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Profile from "./components/Profile";
-import Hello from "./components/Hello";
-import GroupList from "./components/groupList/GroupList";
-import GroupFull from "./components/groupFull/GroupFull";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+import Profile from "./pages/profile/Profile";
+import Hello from "./pages/hello/Hello";
+import GroupList from "./pages/groups/GroupList";
+import GroupFull from "./pages/groupCourses/GroupFull";
+import { EmailProvider } from "./shared/contexts/email/EmailProvider";
+import { GroupProvider } from "./shared/contexts/groupName/GroupProvider";
 
 function App() {
   return (
-    <Routes>
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
-      <Route path="profile" element={<Profile />} />
-      <Route path="/" element={<Hello />} />
-      <Route path="/groups" element={<GroupList />} />
-      <Route path="/groups/:id" element={<GroupFull />} />
-    </Routes>
+    <EmailProvider>
+      <GroupProvider>
+        <Routes>
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="/" element={<Hello />} />
+          <Route path="/groups" element={<GroupList />} />
+          <Route path="/groups/:id" element={<GroupFull />} />
+        </Routes>
+      </GroupProvider>
+    </EmailProvider>
   );
 }
 

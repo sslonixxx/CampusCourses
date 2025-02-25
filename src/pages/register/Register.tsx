@@ -1,8 +1,8 @@
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import "../cssModuls/forms.css";
-import { RegisterUser } from "../requests";
+import "../login/forms.css";
 import { useNavigate } from "react-router-dom";
-import Hello from "./Hello";
+import Hello from "../hello/Hello";
+import { RegisterUser } from "../../shared/requests/requestsProvider";
 
 export interface RegisterForm {
   fullName: string;
