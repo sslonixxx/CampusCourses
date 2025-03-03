@@ -28,3 +28,36 @@
 .statusFinished {
   color: red;
 }
+
+.letterContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.modalBack {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.semesterInput label {
+  margin-left: 5px;
+}
+.wrapper {
+  border: 1px solid grey;
+}
+.editor {
+  background-color: rgb(243, 243, 248);
+}
+.annotations,
+.semester {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}

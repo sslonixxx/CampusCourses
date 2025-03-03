@@ -1,56 +1,57 @@
 @font-face {
-  font-family: 'Quicksand';
-  src: local('Quicksand'),
-  url('/Users/gerget/NewLab/src/fonts/Quicksand/static/Quicksand-Regular.ttf');
+  font-family: "Quicksand";
+  src: local("Quicksand"),
+    url("/Users/gerget/NewLab/src/fonts/Quicksand/static/Quicksand-Regular.ttf");
 }
 * {
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;;
-  }
-  main {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20 px;
-  }
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 800px;
-    max-height: 1000px;
-    width: 100%;
-    padding:25px;
-    background-color: rgb(246,246,251);
-    border: 1% solid rgb(170, 159, 159);
-    border-radius: 15px;
-    box-shadow: 0 0 5px rgb(71, 71, 74);
-  }
-  input, .button {
-    height: 30px;
-    width: 100%;
-    border: 1px solid rgb(193, 186, 186);
-    border-radius: 3px;
-    padding: 0 15px;
-  }
-  .button {
-    margin-top: 20px;
-    background-color: rgb(220, 118, 181);
-    color: white;
-     font-family: 'Quicksand'
-  }
-  .invalidField {
-    color: tomato;
-    margin: 2px;
-    text-align: left;
-  }
-  .input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20 px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 800px;
+  max-height: 2000px;
+  width: 100%;
+  padding: 25px;
+  background-color: rgb(246, 246, 251);
+  border: 1% solid rgb(170, 159, 159);
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgb(71, 71, 74);
+}
+input,
+.button {
+  height: 30px;
+  width: 100%;
+  border: 1px solid rgb(193, 186, 186);
+  border-radius: 3px;
+  padding: 0 15px;
+}
+.button {
+  margin-top: 20px;
+  background-color: rgb(220, 118, 181);
+  color: white;
+  font-family: "Quicksand";
+}
+.invalidField {
+  color: tomato;
+  margin: 2px;
+  text-align: left;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
 h1 {
-    font-weight: 100;
+  font-weight: 100;
 }

@@ -1,6 +1,5 @@
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import Group from "../../../@types/Group";
-import styles from "../groupList.module.css";
 
 interface Modal {
   closeModal: (arg0: boolean) => void;
@@ -22,11 +21,8 @@ const EditGroupModal: React.FC<Modal> = ({ closeModal, editGroup, group }) => {
   };
 
   return (
-    <div className={styles.modalBack} onClick={(e) => e.stopPropagation()}>
-      <div
-        className={styles.modalContainer}
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="modalBack" onClick={(e) => e.stopPropagation()}>
+      <div className="modalContainer" onClick={(e) => e.stopPropagation()}>
         <form className="form" onSubmit={handleSubmit(submit, error)}>
           <h2>Редактирование группы</h2>
           <div className="input-container">
@@ -38,14 +34,14 @@ const EditGroupModal: React.FC<Modal> = ({ closeModal, editGroup, group }) => {
               })}
             />
           </div>
-          <div className={styles.btnContainer}>
-            <button className="button">Сохранить</button>
+          <div className="btnContainer">
+            <button className="btnModalClose">Сохранить</button>
             <button
               onClick={(e) => {
                 e.preventDefault();
                 closeModal(false);
               }}
-              className={styles.btnModalClose}
+              className="btnModalClose"
             >
               Отмена
             </button>

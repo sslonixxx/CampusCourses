@@ -8,19 +8,23 @@ import GroupList from "./pages/groups/GroupList";
 import GroupFull from "./pages/groupCourses/GroupFull";
 import { EmailProvider } from "./shared/contexts/email/EmailProvider";
 import { GroupProvider } from "./shared/contexts/groupName/GroupProvider";
+import { MantineProvider } from "@mantine/core";
+import "@mantine/core/styles.css";
 
 function App() {
   return (
     <EmailProvider>
       <GroupProvider>
-        <Routes>
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="/" element={<Hello />} />
-          <Route path="/groups" element={<GroupList />} />
-          <Route path="/groups/:id" element={<GroupFull />} />
-        </Routes>
+        <MantineProvider>
+          <Routes>
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="/" element={<Hello />} />
+            <Route path="/groups" element={<GroupList />} />
+            <Route path="/groups/:id" element={<GroupFull />} />
+          </Routes>
+        </MantineProvider>
       </GroupProvider>
     </EmailProvider>
   );

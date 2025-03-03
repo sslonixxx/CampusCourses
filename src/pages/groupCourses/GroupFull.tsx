@@ -9,13 +9,15 @@ import {
   getUserRole,
 } from "../../shared/requests/requestsProvider";
 import Role from "../../@types/Role";
-import Course from "./components/Course";
+import Course from "../../@types/Course";
+import { CreateCourseModal } from "./components/CreateCourseModal";
 
 const GroupFull: React.FC = () => {
   const { group } = useGroupName();
   const { id } = useParams<{ id: string }>();
   const [role, setRole] = useState<Role>();
   const [coursesList, setCoursesList] = useState<Course[]>([]);
+  const [showCreateCourseModal, setShowCreateCourseModal] = useState(false);
 
   useEffect(() => {
     const fillCoursesList = async () => {
@@ -25,7 +27,7 @@ const GroupFull: React.FC = () => {
         return;
       }
       const response = await getCoursesList(id);
-      setCoursesList(response);
+      setCoursesList(response.reverse());
     };
     fillCoursesList();
   }, [id]);
@@ -37,6 +39,11 @@ const GroupFull: React.FC = () => {
     };
     getRole();
   }, []);
+
+  const updateList = (newList: Course[]) => {
+    setCoursesList(newList.reverse());
+  };
+
   return (
     <>
       <Header></Header>
@@ -44,13 +51,25 @@ const GroupFull: React.FC = () => {
         <div className={styles.mainContainer}>
           <h1 className={styles.title}>Группа - {group}</h1>
           {role?.isAdmin == true && (
-            <button className={styles.button}>Создать курс</button>
+            <button
+              className={styles.button}
+              onClick={() => setShowCreateCourseModal(true)}
+            >
+              Создать курс
+            </button>
           )}
           <div className={styles.container}>
             {coursesList.map((course) => (
               <CourseForm course={course} key={course.id} />
             ))}
           </div>
+          {showCreateCourseModal && id && (
+            <CreateCourseModal
+              closeModal={() => setShowCreateCourseModal(false)}
+              updateList={updateList}
+              id={id}
+            ></CreateCourseModal>
+          )}
         </div>
       </main>
     </>
